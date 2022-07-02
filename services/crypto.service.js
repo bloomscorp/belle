@@ -1,14 +1,14 @@
-const { hashSync, compare } = require('bcrypt');
+const { hashSync, compareSync } = require('bcrypt');
 
-const encryptPassword = async password => {
-	return hashSync(password, 10);
-};
+module.exports = class CryptoService {
 
-const decryptPassword = async (passwordHash, password) => {
-	return compare(password, passwordHash);
-};
+	constructor() { }
 
-module.exports = {
-	encryptPassword,
-	decryptPassword,
-};
+	async encrypt(password) {
+		return hashSync(password, 10);
+	}
+
+	async decrypt(passwordHash, password) {
+		return compareSync(password, passwordHash);
+	};
+}

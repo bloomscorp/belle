@@ -1,27 +1,36 @@
 const mongoose = require('mongoose');
 const { getUniqueId } = require('../utils/utils');
 
-const UserSchema = new mongoose.Schema({
-    userId: {
+const PropertySchema = new mongoose.Schema({
+    propertyId: {
         type: String,
         default: getUniqueId(),
         index: { unique: true }
     },
-    emailId: {
+    name: {
         type: String,
         required: true,
         trim: true,
         index: { unique: true }
     },
-    password: {
+    url: {
         type: String,
         required: true,
-        trim: true
+        trim: true,
+        index: { unique: true }
     },
+    userId: {
+        type: String,
+        required: true
+    }, 
     createdAt: {
+        type: Date,
+        default: Date.now
+    },
+    updatedAt: {
         type: Date,
         default: Date.now
     }
 });
 
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('Property', PropertySchema);
