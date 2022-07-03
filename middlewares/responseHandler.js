@@ -1,6 +1,6 @@
 
 const { StatusCodes } = require('http-status-codes');
-const APIError = require('../services/api-error.service');
+const APIError = require('../services/error.service');
 const APIResponse = require('../services/response.service');
 
 module.exports = (response, req, res, next) => {
