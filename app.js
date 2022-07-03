@@ -4,6 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const app = express();
+const responseHandler = require('./middlewares/responseHandler');
 
 // routes
 const authRoutes = require('./routes/auth.route');
@@ -26,6 +27,8 @@ app.get('/ping', (req, res) => {
 		message: 'Server is running!',
 	});
 });
+
+app.use(responseHandler);
 
 const startServer = async () => {
 	try {

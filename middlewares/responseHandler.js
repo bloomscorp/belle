@@ -1,42 +1,23 @@
-const { response } = require('express');
+
 const { StatusCodes } = require('http-status-codes');
-
-const sendSuccessResponse = (response, res) => {
-	res.status(response.status).send({
-		success: response.success,
-		message: response.message,
-		data: response.data,
-	});
-};
-
-const sendErrorResponse = (error, res) => {
-	if (error.message) {
-		res.status(error.status).send({
-			success: error.success,
-			message: error.message,
-		});
-	} else {
-		res.status(StatusCodes.INTERNAL_SERVER_ERROR).send({
-			success: false,
-			message: error.toString(),
-		});
-	}
-};
+const APIError = require('../services/api-error.service');
+const APIResponse = require('../services/response.service');
 
 module.exports = (response, req, res, next) => {
+
 	if (response) {
-		if (response.status) {
-			if (response.data) {
-				sendSuccessResponse(response, res);
-			} else {
-				sendErrorResponse(response, res);
-			}
+		if (
+			response instanceof APIError ||
+			response instanceof APIResponse
+		) {
+			res.status(response.code).json({
+				message: response.message,
+				...(response.data && { data: response.data })
+			})
 		} else {
-            res.status(StatusCodes.INTERNAL_SERVER_ERROR).send({
-                success: false,
-                message: response.toString()
-            });
-			next();
+			res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+				message: 'Something went wrong!'
+			})
 		}
 	} else {
 		next();

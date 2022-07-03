@@ -1,6 +1,6 @@
 const { hashSync, compareSync } = require('bcrypt');
 
-module.exports = class CryptoService {
+class CryptoService {
 
 	constructor() { }
 
@@ -12,3 +12,5 @@ module.exports = class CryptoService {
 		return compareSync(password, passwordHash);
 	};
 }
+
+module.exports = new CryptoService();

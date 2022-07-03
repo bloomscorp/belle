@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-module.exports = class JWTService {
+class JWTService {
 
     secret = process.env.JWT_SECRET || 'someSecretKey';
 
@@ -14,3 +14,5 @@ module.exports = class JWTService {
         return jwt.verify(token, this.secret);
     }
 }
+
+module.exports = new JWTService();
