@@ -9,6 +9,7 @@ const responseHandler = require('./middlewares/responseHandler');
 // routes
 const authRoutes = require('./routes/auth.route');
 const propertyRoutes = require('./routes/property.route');
+const eventRoutes = require('./routes/event.route');
 
 const PORT = process.env.PORT || 3000;
 
@@ -19,6 +20,7 @@ app.use(express.urlencoded({ limit: '20mb', extended: false }));
 
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/property', propertyRoutes);
+app.use('/api/v1/event', eventRoutes);
 
 // for testing only
 app.get('/ping', (req, res) => {
