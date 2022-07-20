@@ -1,21 +1,22 @@
 const router = require('express').Router();
+const eventController = require('../controllers/event.controller');
 const auth = require('../middlewares/auth.middleware');
 
 router
     .get('/', [auth.authorise], (req, res, next) => {
-        res.send('Hello from /event route');
+        eventController.getAllEvents(req, res).then(next).catch(next);
     })
     .get('/:eventId', [auth.authorise], (req, res, next) => {
-        res.send(`Hello from /event/${req.params.eventId}`);
+        eventController.getEvent(req, res).then(next).catch(next);
     })
     .post('/', [auth.authorise], (req, res, next) => {
-        res.send(req.body);
+        eventController.postEvent(req, res).then(next).catch(next);
     })
     .put('/:eventId', [auth.authorise], (req, res, next) => {
-        res.send('Event updated');
+        eventController.updateEvent(req, res).then(next).catch(next);
     })
     .delete('/:eventId', [auth.authorise], (req, res, next) => {
-        res.send('Event deleted sucessfully');
+        eventController.deleteEvent(req, res).then(next).catch(next);
     });
 
 module.exports = router;
