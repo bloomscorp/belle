@@ -17,6 +17,7 @@ const EventLogSchema = new mongoose.Schema({
     },
     createdAt: {
         type: Date,
+        default: Date.now,
         required: true
     },
     ipAddress: {
@@ -27,6 +28,9 @@ const EventLogSchema = new mongoose.Schema({
     },
     basicSystemSettings: {
         type: String,
+    },
+    data: {
+        type: mongoose.Schema.Types.Mixed
     }
 });
 
