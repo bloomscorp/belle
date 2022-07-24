@@ -1,11 +1,12 @@
 const router = require('express').Router();
+const eventLogController = require('../controllers/eventLog.controller');
 
 router
     .get('/', [], (req, res, next) => {
-        res.send('Hello from /event/log');
+        eventLogController.getAllEventLogs(req, res).then(next).catch(next);
     })
     .post('/', [], (req, res, next) => {
-        res.send(req.body);
+        eventLogController.postEventLog(req, res).then(next).catch(next);
     });
 
 module.exports = router;
