@@ -23,7 +23,7 @@ const EventLogSchema = new mongoose.Schema({
     ipAddress: {
         type: String,
     },
-    OS: {
+    os: {
         type: String,
     },
     basicSystemSettings: {
