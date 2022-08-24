@@ -38,3 +38,9 @@ const updateUser = async(req, res) => {
         { upsert: false }
     );
 }
+
+module.exports = {
+    getAllUsers,
+    getUser,
+    updateUser
+}
