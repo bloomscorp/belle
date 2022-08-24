@@ -24,7 +24,7 @@ const getUser = async(req, res) => {
         return APIResponse.notFound('userId is invalid');
     }
 
-    return APIResponse.ok('property fetched successfully');
+    return APIResponse.ok('user fetched successfully', user);
 };
 
 const updateUser = async(req, res) => {
@@ -37,6 +37,8 @@ const updateUser = async(req, res) => {
         { $set: { imageUrl: payload.imageUrl } },
         { upsert: false }
     );
+
+    return APIResponse.ok('user updated successfully');
 }
 
 module.exports = {
