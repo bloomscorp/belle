@@ -7,7 +7,7 @@ const getAllUsers = async (req, res, next) => {
 
     const users = await UserModel.find({});
 
-    return APIResponse.ok('users fetched successfully');
+    return APIResponse.ok('users fetched successfully', users);
 };
 
 const getUser = async(req, res) => {

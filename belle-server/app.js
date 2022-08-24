@@ -24,7 +24,7 @@ app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/property', propertyRoutes);
 app.use('/api/v1/event', eventRoutes);
 app.use('/api/v1/log', eventLogRoutes);
-app.use('/api/v1/user', userRoutes);
+app.use('/api/v1/users', userRoutes);
 
 // for testing only
 app.get('/ping', (req, res) => {
