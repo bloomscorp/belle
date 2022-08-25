@@ -11,6 +11,7 @@ const authRoutes = require('./routes/auth.route');
 const propertyRoutes = require('./routes/property.route');
 const eventRoutes = require('./routes/event.route');
 const eventLogRoutes = require('./routes/eventLog.route');
+const userRoutes = require('./routes/user.route');
 
 const PORT = process.env.PORT || 3000;
 
@@ -23,6 +24,7 @@ app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/property', propertyRoutes);
 app.use('/api/v1/event', eventRoutes);
 app.use('/api/v1/log', eventLogRoutes);
+app.use('/api/v1/users', userRoutes);
 
 // for testing only
 app.get('/ping', (req, res) => {
