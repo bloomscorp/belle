@@ -15,6 +15,7 @@ module.exports = (response, req, res, next) => {
 				...(response.data && { data: response.data })
 			})
 		} else {
+			console.log(response);
 			res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
 				message: 'Something went wrong!'
 			})
