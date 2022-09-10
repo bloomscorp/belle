@@ -1,0 +1,15 @@
+<form>
+  
+    <div class="container">
+      <label class="space"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required class="form-control"
+      [(ngModel)] = "loginData.emailId"><br><br>
+  
+      <label class="space"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required class="form-control"
+      [(ngModel)] = "loginData.password"><br><br>
+  
+      <button class="space" type="submit" (click)="proceedLogin()">Login</button>
+    </div>
+     
+  </form>  
