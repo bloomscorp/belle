@@ -1,0 +1,20 @@
+<mat-toolbar color="primary" class = "test" >
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>supervised_user_circle</mat-icon>
+    </button>
+    <span>Belle</span>
+    <span class="example-spacer"></span>
+    <button mat-raised-button color="warn" >add property</button>
+</mat-toolbar>
+<div class = "test">
+        <div fxLayout="column" fxLayoutAlign="space-around stretch" *ngFor="let event of events ; let m = index">
+            <div fxLayout="row" fxLayoutAlign="space-around center">
+                <span>{{event.eventId}}</span>
+                <span>{{event.name}}</span>
+                <span>{{event.eventType}}</span>
+                <button mat-raised-button class="detailsButton" color="warn">
+                    <a (click)="reDirectToEventDetailsPage(event.eventId)">Details</a>
+                </button>
+            </div>
+        </div>
+</div>

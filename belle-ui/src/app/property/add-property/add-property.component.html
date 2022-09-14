@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>Add Property Form</h1>
+<div mat-dialog-content>
+    <form [formGroup]="propertyForm">
+        <mat-form-field appearance="fill">
+            <mat-label>Property Name</mat-label>
+            <input formControlName="name" matInput placeholder="Google">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Property url</mat-label>
+            <input formControlName="url" matInput placeholder="www.google.com">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>UserId</mat-label>
+            <input formControlName="userId" matInput placeholder="a001">
+        </mat-form-field>
+    </form>   
+</div>
+<div mat-dialog-actions [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close="">Close</button>
+    <button mat-raised-button color="primary" (click)="addProperty()">{{actionBtn}}</button>
+</div>
