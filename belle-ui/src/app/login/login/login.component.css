@@ -1,0 +1,11 @@
+div 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 50px;
+}
+.space
+{
+    margin-left: 6px;
+} 
