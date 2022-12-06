@@ -1,23 +1,23 @@
 {
-  "name": "belle-server",
-  "version": "0.0.1",
-  "description": "api server for project belle",
-  "main": "index.js",
-  "type": "module",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/bloomscorp/belle.git"
-  },
-  "keywords": [
-    "belle"
-  ],
-  "author": "Debabrata Acharya, Ayan Kumar Saha, Sreshtha Dey, Sk. Saif Ahmed",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/bloomscorp/belle/issues"
-  },
-  "homepage": "https://github.com/bloomscorp/belle#readme"
+	"name": "belle-server",
+	"version": "0.0.1",
+	"description": "api server for project belle",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/bloomscorp/belle.git"
+	},
+	"keywords": [
+		"belle"
+	],
+	"author": "Debabrata Acharya, Ayan Kumar Saha, Sreshtha Dey, Sk. Saif Ahmed",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/bloomscorp/belle/issues"
+	},
+	"homepage": "https://github.com/bloomscorp/belle#readme"
 }
