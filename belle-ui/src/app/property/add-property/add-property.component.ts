@@ -13,7 +13,7 @@ export class AddPropertyComponent implements OnInit {
   actionBtn : string = 'Save';
   constructor(private formBuilder  : FormBuilder,
     private api : ApiService,
-    @Inject(MAT_DIALOG_DATA) public editData : any,
+    @Inject(MAT_DIALOG_DATA) public editData : any, 
     private dialogRef : MatDialogRef<AddPropertyComponent>) { }
 
   ngOnInit(): void {

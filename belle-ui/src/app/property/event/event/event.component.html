@@ -1,20 +1,64 @@
-<mat-toolbar color="primary" class = "test" >
+<mat-toolbar color="primary">
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
       <mat-icon>supervised_user_circle</mat-icon>
     </button>
     <span>Belle</span>
     <span class="example-spacer"></span>
-    <button mat-raised-button color="warn" >add property</button>
+    <button mat-raised-button color="warn" (click)="openDialog()">add Event</button>
 </mat-toolbar>
-<div class = "test">
-        <div fxLayout="column" fxLayoutAlign="space-around stretch" *ngFor="let event of events ; let m = index">
-            <div fxLayout="row" fxLayoutAlign="space-around center">
-                <span>{{event.eventId}}</span>
-                <span>{{event.name}}</span>
-                <span>{{event.eventType}}</span>
-                <button mat-raised-button class="detailsButton" color="warn">
-                    <a (click)="reDirectToEventDetailsPage(event.eventId)">Details</a>
-                </button>
-            </div>
-        </div>
+<div class="container">
+  <div style="margin-top: 10px;">
+    <mat-form-field appearance="standard">
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+    </mat-form-field>
+    
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort>
+    
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Event Name </th>
+          <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+        </ng-container>
+    
+        <!-- url Column -->
+        <ng-container matColumnDef="eventType">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Event Type </th>
+          <td mat-cell *matCellDef="let row"> {{row.eventType}} </td>
+        </ng-container>
+
+        <!-- action Column -->
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+          <td mat-cell *matCellDef="let row"> 
+            <button mat-icon-button (click)="editEvent(row)" color="primary">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button (click)="deleteEvent(row.propertyId)" color="warn">
+              <mat-icon>delete</mat-icon>
+            </button> 
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="details">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+          <td mat-cell *matCellDef="let row">
+            <button mat-raised-button class="detailsButton" color="warn"><a [routerLink]="['/property',row.propertyId]">Details</a></button>
+          </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
+      </table>
+    
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+    </div>
+    
+  </div>
 </div>
+<router-outlet></router-outlet>

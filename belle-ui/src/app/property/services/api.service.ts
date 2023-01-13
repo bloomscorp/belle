@@ -40,4 +40,11 @@ export class ApiService {
     })
     return this.http.delete<any>("http://localhost:3000/api/v1/property/"+id,{headers})
   }
+
+  getPropertById(id: number){
+    let headers = new HttpHeaders({
+      'Authorization':'Bearer ' + localStorage.getItem('token')
+    })
+    return this.http.get<any>("http://localhost:3000/api/v1/property/id",{headers})
+  }
 }
