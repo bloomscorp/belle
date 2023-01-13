@@ -21,6 +21,20 @@ const UserSchema = new mongoose.Schema({
     createdAt: {
         type: Date,
         default: Date.now
+    },
+    username: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    phoneNo: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    imageUrl: {
+        type: String,
+        trim: true
     }
 });
 
