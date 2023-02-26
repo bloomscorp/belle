@@ -16,7 +16,7 @@ export interface PostEntityController {
 		entity: E,
 		worker: W
 	) => RaintreeResponse,
-	
+
 	postEntityUnauthorized: <E, W extends BehemothControllerWorker<number>>(
 		requset: any,
 		methodName: string,
