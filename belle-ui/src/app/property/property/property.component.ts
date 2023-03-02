@@ -53,7 +53,7 @@ export class PropertyComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
-  }
+  } 
   editProperty(row : any){
     this.dialog.open(AddPropertyComponent, {
       width:'30%',

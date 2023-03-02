@@ -1,1 +1,18 @@
-<p>add-event works!</p>
+<h1 mat-dialog-title>Add Event Form</h1>
+<div mat-dialog-content>
+    <form [formGroup]="eventForm">
+        <mat-form-field appearance="fill">
+            <mat-label>Event Name</mat-label>
+            <input formControlName="name" matInput placeholder="Google"> 
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Event Type</mat-label>
+            <input formControlName="eventType" matInput placeholder="www.google.com">
+        </mat-form-field>
+    </form>   
+</div>
+<div mat-dialog-actions [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close="">Close</button>
+    <button mat-raised-button color="primary" (click)="addEvent()">{{actionBtn}}</button>
+</div>
+ 

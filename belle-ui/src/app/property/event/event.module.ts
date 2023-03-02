@@ -14,6 +14,9 @@ import { EventRoutingModule } from './event-routing.module';
 import { EventComponent } from './event/event.component';
 import { EventDetailsComponent } from './event-details/event-details.component';
 import { EventLogDetailsComponent } from './event-log-details/event-log-details.component';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
+import {MatTableDataSource} from '@angular/material/table';
 
 
 @NgModule({
@@ -35,7 +38,8 @@ import { EventLogDetailsComponent } from './event-log-details/event-log-details.
     ReactiveFormsModule,
     MatPaginatorModule,
     MatTableModule,
-    MatSortModule
+    MatSortModule,
+
   ]
 })
 export class EventModule { }
