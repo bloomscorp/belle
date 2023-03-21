@@ -41,8 +41,22 @@ const updateUser = async(req, res) => {
     return APIResponse.ok('user updated successfully');
 }
 
+const getUserProfile = async (req, res) => {
+
+    const userId = req.user.userId;
+
+    let user = await UserModel.findOne({ userId });
+
+    if (!user) {
+        return APIResponse.notFound('user profile not found!');
+    }
+
+    return APIResponse.ok('user profile fetched successfully!', user);
+}
+
 module.exports = {
     getAllUsers,
     getUser,
-    updateUser
+    updateUser,
+    getUserProfile
 }

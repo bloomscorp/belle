@@ -14,6 +14,10 @@ const postEventLog = async (req, res) => {
 
     const payload = req.body;
 
+    if (!payload.propertyId || !payload.eventId) {
+        return APIError.badRequest('Mandatory fields not found in the request body!');
+    }
+
     await EventLogModel.create(payload);
 
     return APIResponse.created('event log created successfully');

@@ -8,10 +8,10 @@ const jwtService = new require('../services/jwt.service');
 
 const register = async (req, res) => {
 
-	const { emailId, password } = req.body;
+	const { emailId, password, username } = req.body;
 
-	if (!emailId || !password) {
-		return APIError.badRequest('emailId or password is missing!');
+	if (!emailId || !password || !username) {
+		return APIError.badRequest('emailId/password/username is missing!');
 	}
 
 	const user = await userModel.findOne({ emailId });
@@ -22,7 +22,7 @@ const register = async (req, res) => {
 
 	const encryptedPassword = await cryptoService.encrypt(password);
 
-	await userModel.create({ emailId, password: encryptedPassword });
+	await userModel.create({ emailId, password: encryptedPassword, username });
 
 	return APIResponse.created('user registered successfully!');
 };
